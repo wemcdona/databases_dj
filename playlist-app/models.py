@@ -4,10 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Playlists(db.Model):
+class Playlist(db.Model):
     """Playlist."""
 
-    __tablename__ = 'playlists'
+    __tablename__ = 'playlist'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)

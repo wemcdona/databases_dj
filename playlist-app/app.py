@@ -10,7 +10,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 connect_db(app)
-db.create_all()
+
+# Create tables in the database if they don't exist
+with app.app_context():
+    db.create_all()
 
 app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
 
