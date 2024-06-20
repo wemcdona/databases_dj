@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-
-<h1>Add a song to {{ playlist.name }}</h1>
-
-<h1>Add a form that when submitted adds a song to this playlist!</h1>
-
+  <h1>Add Song to {{ playlist.name }}</h1>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.song.label }}<br>
+      {{ form.song() }}<br>
+      {% for error in form.song.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p><input type="submit" value="Add Song to Playlist"></p>
+  </form>
 {% endblock %}

@@ -1,7 +1,23 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-
-<h1>Add a form that when submitted creates a new playlist!</h1>
-
+  <h1>Add Playlist</h1>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.name.label }}<br>
+      {{ form.name(size=32) }}<br>
+      {% for error in form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.description.label }}<br>
+      {{ form.description(size=64) }}<br>
+      {% for error in form.description.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p><input type="submit" value="Add Playlist"></p>
+  </form>
 {% endblock %}

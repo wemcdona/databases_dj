@@ -11,6 +11,7 @@ class Playlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
+    songs = db.relationship('Song', secondary='playlists_songs', backref='playlists')
 
 class PlaylistSong(db.Model):
     """Mapping of a playlist to a song."""
