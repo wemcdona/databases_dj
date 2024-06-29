@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
 
 from models import db, connect_db, Playlist, Song, PlaylistSong
@@ -117,6 +117,7 @@ def check_seed():
             {"playlist_id": ps.playlist_id, "song_id": ps.song_id} for ps in playlist_songs
         ]
     }
+
 
 
 
